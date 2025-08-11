@@ -14,12 +14,12 @@ const HeroSection: React.FC = () => {
     <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
       <div className="absolute inset-0 z-[-1]">
         <Image
-          src="https://images.unsplash.com/photo-1533972741554-123565261488?q=80&w=1920&auto=format&fit=crop"
-          alt="Costa Rican Landscape"
+          src="https://images.unsplash.com/photo-1551009175-8a68da93d5f9?q=80&w=1920&auto=format&fit=crop"
+          alt="Costa Rican Coffee Plantation"
           layout="fill"
           objectFit="cover"
           className="brightness-50"
-          data-ai-hint="costa rica landscape"
+          data-ai-hint="coffee plantation landscape"
           priority
         />
       </div>
