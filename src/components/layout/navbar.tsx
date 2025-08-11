@@ -140,8 +140,8 @@ export default function Navbar() {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-sm">
-          <nav className="flex flex-col items-center gap-4 p-4">
+        <div className="md:hidden bg-background/95 backdrop-blur-sm p-4">
+          <nav className="flex flex-col items-center gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.id}
@@ -158,6 +158,8 @@ export default function Navbar() {
             <Button asChild className="w-full">
               <Link href="#contact" onClick={handleScrollTo('contact')}>{t.nav.contact}</Link>
             </Button>
+            </nav>
+            <div className="mt-4 flex justify-center">
              <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="outline">
@@ -174,7 +176,7 @@ export default function Navbar() {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
-          </nav>
+            </div>
         </div>
       )}
     </header>

@@ -88,7 +88,7 @@ export default function ContactSection() {
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700">
-                <Link href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                   <MessageSquare className="mr-2 h-5 w-5" />
                   {t.whatsappButton}
                 </Link>
