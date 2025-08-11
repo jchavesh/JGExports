@@ -18,7 +18,7 @@ const ProductsSection: React.FC = () => {
         icon: <Coffee className="h-12 w-12 text-primary" />,
         title: t.coffeeTitle,
         description: t.coffeeDescription,
-        imageUrl: 'https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop',
         imageHint: 'coffee beans plantation',
       },
       {
@@ -32,7 +32,7 @@ const ProductsSection: React.FC = () => {
         icon: <CacaoIcon className="h-12 w-12 text-primary" />,
         title: t.cacaoTitle,
         description: t.cacaoDescription,
-        imageUrl: 'https://images.unsplash.com/photo-1579982432433-4f0120158a43?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://images.unsplash.com/photo-1606671158094-eff247589333?q=80&w=800&auto=format&fit=crop',
         imageHint: 'cacao pods tree',
       },
     ];
