@@ -18,7 +18,7 @@ const ProductsSection: React.FC = () => {
         icon: <Coffee className="h-12 w-12 text-primary" />,
         title: t.coffeeTitle,
         description: t.coffeeDescription,
-        imageUrl: 'https://images.unsplash.com/photo-1511920183353-34e85d5742a8?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=800&auto=format&fit=crop',
         imageHint: 'coffee beans plantation',
       },
       {
