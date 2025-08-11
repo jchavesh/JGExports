@@ -59,6 +59,60 @@ export const translations = {
             countriesServed: 'Countries Served',
             happyClients: 'Happy Clients',
         }
+    },
+    faq: {
+      title: 'Frequently Asked Questions',
+      subtitle: 'Have questions? We have answers. Here are some common inquiries from our clients.',
+      items: [
+        {
+          question: 'What are your Minimum Order Quantities (MOQs)?',
+          answer: 'MOQs vary by product. For coffee, the minimum is typically one pallet (approx. 500-700kg). For plants and cacao, it depends on the specific variety and destination. Please contact us for a detailed quote.',
+        },
+        {
+          question: 'What are the typical lead times?',
+          answer: 'Lead times depend on product availability and shipping schedules. Generally, for coffee and cacao, it is 2-4 weeks from order confirmation to shipment. For plants, it can be 4-8 weeks to allow for proper preparation and certification.',
+        },
+        {
+          question: 'What payment methods do you accept?',
+          answer: 'We accept bank transfers (wire transfers). For first-time orders, we typically require a 50% down payment to begin production and the remaining 50% upon presentation of shipping documents. We are open to discussing other payment terms for long-term partners.',
+        },
+         {
+          question: 'Can you handle logistics and customs clearance?',
+          answer: 'Yes, we offer end-to-end logistics solutions. We manage everything from farm-gate pickup to export documentation and freight forwarding to your destination port. We work with trusted partners to ensure a smooth process.',
+        }
+      ]
+    },
+    contact: {
+        title: 'Get in Touch',
+        subtitle: 'Ready to source the best from Costa Rica? Fill out the form, and our sales team will contact you to discuss your needs.',
+        whatsappButton: 'Chat on WhatsApp',
+        whatsappNote: 'For immediate inquiries, chat with us directly.',
+        form: {
+            name: 'Full Name',
+            namePlaceholder: 'John Doe',
+            email: 'Email Address',
+            emailPlaceholder: 'john.doe@example.com',
+            company: 'Company',
+            companyPlaceholder: 'Your Company Inc.',
+            country: 'Country',
+            countryPlaceholder: 'United States',
+            productInterest: 'Product of Interest',
+            productPlaceholder: 'Select a product',
+            message: 'Message',
+            messagePlaceholder: 'Tell us about your requirements...',
+            submit: 'Submit Inquiry',
+            submitting: 'Submitting...'
+        },
+        products: {
+            coffee: 'Coffee',
+            plants: 'Plants',
+            cacao: 'Cacao',
+        },
+        success: {
+            title: 'Thank You!',
+            message: 'Your message has been sent successfully. Our team has received your inquiry and will get back to you shortly.',
+            button: 'Send Another Message'
+        }
     }
   },
   es: {
@@ -120,6 +174,60 @@ export const translations = {
             yearsExporting: 'Años Exportando',
             countriesServed: 'Países Servidos',
             happyClients: 'Clientes Satisfechos',
+        }
+    },
+    faq: {
+        title: 'Preguntas Frecuentes',
+        subtitle: '¿Tiene preguntas? Tenemos respuestas. Aquí hay algunas consultas comunes de nuestros clientes.',
+        items: [
+            {
+                question: '¿Cuáles son sus Cantidades Mínimas de Pedido (MOQs)?',
+                answer: 'Los MOQs varían según el producto. Para el café, el mínimo suele ser un palé (aprox. 500-700 kg). Para plantas y cacao, depende de la variedad específica y el destino. Por favor, contáctenos para una cotización detallada.',
+            },
+            {
+                question: '¿Cuáles son los plazos de entrega típicos?',
+                answer: 'Los plazos de entrega dependen de la disponibilidad del producto y los horarios de envío. Generalmente, para café y cacao, es de 2 a 4 semanas desde la confirmación del pedido hasta el envío. Para las plantas, puede ser de 4 a 8 semanas para permitir la preparación y certificación adecuadas.',
+            },
+            {
+                question: '¿Qué métodos de pago aceptan?',
+                answer: 'Aceptamos transferencias bancarias. Para los primeros pedidos, normalmente requerimos un pago inicial del 50% para comenzar la producción y el 50% restante contra la presentación de los documentos de envío. Estamos abiertos a discutir otros términos de pago para socios a largo plazo.',
+            },
+            {
+                question: '¿Pueden encargarse de la logística y el despacho de aduanas?',
+                answer: 'Sí, ofrecemos soluciones logísticas de extremo a extremo. Gestionamos todo, desde la recogida en la finca hasta la documentación de exportación y el transporte de carga a su puerto de destino. Trabajamos con socios de confianza para garantizar un proceso fluido.',
+            },
+        ],
+    },
+    contact: {
+        title: 'Ponerse en Contacto',
+        subtitle: '¿Listo para obtener lo mejor de Costa Rica? Complete el formulario y nuestro equipo de ventas se comunicará con usted para analizar sus necesidades.',
+        whatsappButton: 'Chatear en WhatsApp',
+        whatsappNote: 'Para consultas inmediatas, chatee directamente con nosotros.',
+        form: {
+            name: 'Nombre Completo',
+            namePlaceholder: 'Juan Pérez',
+            email: 'Correo Electrónico',
+            emailPlaceholder: 'juan.perez@ejemplo.com',
+            company: 'Empresa',
+            companyPlaceholder: 'Su Empresa S.A.',
+            country: 'País',
+            countryPlaceholder: 'Estados Unidos',
+            productInterest: 'Producto de Interés',
+            productPlaceholder: 'Seleccione un producto',
+            message: 'Mensaje',
+            messagePlaceholder: 'Cuéntenos sobre sus requerimientos...',
+            submit: 'Enviar Consulta',
+            submitting: 'Enviando...'
+        },
+        products: {
+            coffee: 'Café',
+            plants: 'Plantas',
+            cacao: 'Cacao',
+        },
+        success: {
+            title: '¡Gracias!',
+            message: 'Su mensaje ha sido enviado con éxito. Nuestro equipo ha recibido su consulta y se comunicará con usted en breve.',
+            button: 'Enviar Otro Mensaje'
         }
     }
   },
