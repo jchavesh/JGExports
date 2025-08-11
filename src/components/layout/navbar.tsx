@@ -5,15 +5,27 @@ import Link from 'next/link';
 import { Menu, X, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
-const navLinks = [
-  { id: 'products', title: 'Products' },
-  { id: 'process', title: 'Process' },
-  { id: 'about', title: 'About' },
-  { id: 'faq', title: 'FAQ' },
-];
 
 export default function Navbar() {
+  const { language, translations, setLanguage } = useLanguage();
+  const t = translations[language];
+
+  const navLinks = [
+    { id: 'products', title: t.nav.products },
+    { id: 'process', title: t.nav.process },
+    { id: 'about', title: t.nav.about },
+    { id: 'faq', title: t.nav.faq },
+  ];
+
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,7 +71,7 @@ export default function Navbar() {
         observer.current?.observe(el);
       }
     });
-  }, []);
+  }, [navLinks]);
 
   useEffect(() => {
     createObserver();
@@ -97,8 +109,24 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="hidden items-center gap-2 md:flex">
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <Button variant="outline" size="icon">
+                        <Globe className="h-[1.2rem] w-[1.2rem]" />
+                        <span className="sr-only">Change language</span>
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={() => setLanguage('en')}>
+                        English
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setLanguage('es')}>
+                        Español
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
           <Button asChild>
-            <Link href="#contact" onClick={handleScrollTo('contact')}>Contact Us</Link>
+            <Link href="#contact" onClick={handleScrollTo('contact')}>{t.nav.contact}</Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -128,8 +156,24 @@ export default function Navbar() {
               </Link>
             ))}
             <Button asChild className="w-full">
-              <Link href="#contact" onClick={handleScrollTo('contact')}>Contact Us</Link>
+              <Link href="#contact" onClick={handleScrollTo('contact')}>{t.nav.contact}</Link>
             </Button>
+             <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <Button variant="outline">
+                        <Globe className="mr-2 h-4 w-4" />
+                        {language === 'en' ? 'Language' : 'Idioma'}
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={() => { setLanguage('en'); setIsMenuOpen(false); }}>
+                        English
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => { setLanguage('es'); setIsMenuOpen(false);}}>
+                        Español
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
         </div>
       )}
