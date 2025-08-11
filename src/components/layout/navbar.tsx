@@ -89,7 +89,10 @@ export default function Navbar() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Globe className="h-7 w-7 text-accent" />
-          <span className="text-xl font-bold font-headline text-white [text-shadow:1px_1px_2px_#808080]">
+          <span className={cn(
+              "text-xl font-bold font-headline transition-colors",
+              isScrolled ? "text-foreground" : "text-white [text-shadow:1px_1px_2px_#333333]"
+            )}>
             J&G Exports
           </span>
         </Link>
