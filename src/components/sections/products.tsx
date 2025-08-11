@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Coffee, Leaf } from 'lucide-react';
@@ -17,18 +18,21 @@ const ProductsSection: React.FC = () => {
         icon: <Coffee className="h-12 w-12 text-primary" />,
         title: t.coffeeTitle,
         description: t.coffeeDescription,
+        imageUrl: 'https://images.unsplash.com/photo-1511920183353-3c9c9b0a0a57?q=80&w=800&auto=format&fit=crop',
         imageHint: 'coffee beans plantation',
       },
       {
         icon: <Leaf className="h-12 w-12 text-primary" />,
         title: t.plantsTitle,
         description: t.plantsDescription,
+        imageUrl: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=800&auto=format&fit=crop',
         imageHint: 'tropical plants nursery',
       },
       {
         icon: <CacaoIcon className="h-12 w-12 text-primary" />,
         title: t.cacaoTitle,
         description: t.cacaoDescription,
+        imageUrl: 'https://images.unsplash.com/photo-1578973615934-8d27bde2d3c3?q=80&w=800&auto=format&fit=crop',
         imageHint: 'cacao pods tree',
       },
     ];
@@ -44,9 +48,18 @@ const ProductsSection: React.FC = () => {
         </div>
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {products.map((product, index) => (
-            <Card key={index} className="flex flex-col text-center items-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card key={index} className="flex flex-col text-center items-center shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                <div className="relative w-full h-48">
+                    <Image
+                        src={product.imageUrl}
+                        alt={product.title}
+                        layout="fill"
+                        objectFit="cover"
+                        data-ai-hint={product.imageHint}
+                    />
+                </div>
               <CardHeader className="items-center">
-                <div className="p-4 bg-primary/10 rounded-full">
+                <div className="p-4 bg-primary/10 rounded-full -mt-8 bg-background">
                   {product.icon}
                 </div>
                 <CardTitle className="font-headline mt-4">{product.title}</CardTitle>

@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => {
     <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
       <div className="absolute inset-0 z-[-1]">
         <Image
-          src="https://placehold.co/1920x1080.png"
+          src="https://images.unsplash.com/photo-1533972741554-123565261488?q=80&w=1920&auto=format&fit=crop"
           alt="Costa Rican Landscape"
           layout="fill"
           objectFit="cover"
