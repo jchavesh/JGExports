@@ -3,27 +3,33 @@
 import React from 'react';
 import Image from 'next/image';
 import AnimatedCounter from '../animated-counter';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const stats = [
-  { value: 15, label: 'Years Exporting' },
-  { value: 40, label: 'Countries Served' },
-  { value: 98, label: 'Happy Clients', suffix: '%' },
-];
 
 const AboutSection: React.FC = () => {
+    const { language, translations } = useLanguage();
+    const t = translations[language].about;
+
+    const stats = [
+      { value: 1, label: t.stats.yearsExporting },
+      { value: 2, label: t.stats.countriesServed },
+      { value: 98, label: t.stats.happyClients, suffix: '%' },
+    ];
+
+
   return (
     <section id="about" className="bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl">
-              Your Trusted Partner in Quality Exports
+              {t.title}
             </h2>
             <p className="mt-4 text-muted-foreground md:text-lg">
-              For over a decade, J&G Exports has been a bridge between Costa Rica's finest producers and the global market. Our mission is built on three pillars: unwavering quality, sustainable practices, and building long-lasting relationships with our clients.
+              {t.description1}
             </p>
             <p className="mt-4 text-muted-foreground md:text-lg">
-              We are not just exporters; we are partners in your success, ensuring every shipment meets the highest standards of excellence.
+              {t.description2}
             </p>
             <div className="mt-8 grid grid-cols-3 gap-4 text-center">
               {stats.map((stat) => (
