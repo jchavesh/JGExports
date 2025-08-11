@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => {
     <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
       <div className="absolute inset-0 z-[-1]">
         <Image
-          src="https://images.unsplash.com/photo-1551009175-8a68da93d5f9?q=80&w=1920&auto=format&fit=crop"
+          src="https://static01.nyt.com/images/2025/02/19/espanol/00coffee-29-ES-copy1/00coffee-10-plwg-videoSixteenByNine3000.jpg"
           alt="Costa Rican Coffee Plantation"
           layout="fill"
           objectFit="cover"
