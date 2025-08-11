@@ -24,6 +24,32 @@ export const translations = {
         cacaoDescription: 'Sourced from dedicated farms, our Trinitario cacao beans are perfect for artisanal chocolatiers seeking unique and rich flavor notes for their creations.',
         specSheetButton: 'Request Spec Sheet'
     },
+    exportTimeline: {
+      title: 'Our Seamless Export Process',
+      subtitle: 'From our farms to your hands, we\'ve perfected a 5-step process to ensure quality and reliability.',
+      steps: [
+        {
+          title: 'Inquiry & Quote',
+          description: 'You send us an inquiry, and our team provides a detailed quote and product specifications.',
+        },
+        {
+          title: 'Sample Approval',
+          description: 'We ship samples for your evaluation. Once approved, we move forward with the order.',
+        },
+        {
+          title: 'Production & QC',
+          description: 'Your order is produced or sourced, undergoing rigorous quality control checks at every stage.',
+        },
+        {
+          title: 'Logistics & Shipping',
+          description: 'We handle all export documentation and logistics to ensure a smooth transit to your destination port.',
+        },
+        {
+          title: 'Delivery & Follow-up',
+          description: 'Your shipment arrives, and our team follows up to ensure your complete satisfaction.',
+        },
+      ]
+    },
     about: {
         title: 'Your Trusted Partner in Quality Exports',
         description1: 'J&G Exports has been a bridge between Costa Rica\'s finest producers and the global market. Our mission is built on three pillars: unwavering quality, sustainable practices, and building long-lasting relationships with our clients.',
@@ -59,6 +85,32 @@ export const translations = {
         cacaoTitle: 'Cacao de Sabor Fino',
         cacaoDescription: 'Procedentes de fincas dedicadas, nuestros granos de cacao Trinitario son perfectos para los chocolateros artesanales que buscan notas de sabor únicas y ricas para sus creaciones.',
         specSheetButton: 'Solicitar Ficha Técnica'
+    },
+    exportTimeline: {
+      title: 'Nuestro Proceso de Exportación Simplificado',
+      subtitle: 'Desde nuestras fincas hasta sus manos, hemos perfeccionado un proceso de 5 pasos para garantizar calidad y confiabilidad.',
+      steps: [
+        {
+          title: 'Consulta y Cotización',
+          description: 'Usted nos envía una consulta y nuestro equipo le proporciona una cotización detallada y las especificaciones del producto.',
+        },
+        {
+          title: 'Aprobación de Muestras',
+          description: 'Enviamos muestras para su evaluación. Una vez aprobadas, avanzamos con el pedido.',
+        },
+        {
+          title: 'Producción y Control de Calidad',
+          description: 'Su pedido se produce u obtiene, pasando por rigurosos controles de calidad en cada etapa.',
+        },
+        {
+          title: 'Logística y Envío',
+          description: 'Manejamos toda la documentación de exportación y la logística para garantizar un tránsito fluido a su puerto de destino.',
+        },
+        {
+          title: 'Entrega y Seguimiento',
+          description: 'Su envío llega y nuestro equipo realiza un seguimiento para garantizar su completa satisfacción.',
+        },
+      ]
     },
     about: {
         title: 'Su Socio de Confianza en Exportaciones de Calidad',
