@@ -45,7 +45,7 @@ const AboutSection: React.FC = () => {
           </div>
           <div className="relative w-full h-80 md:h-full rounded-lg overflow-hidden shadow-xl">
              <Image
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1471&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=1471&auto=format&fit=crop"
                 alt="J&G Exports Team"
                 layout="fill"
                 objectFit="cover"
