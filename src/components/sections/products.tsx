@@ -25,7 +25,7 @@ const ProductsSection: React.FC = () => {
         icon: <Leaf className="h-12 w-12 text-primary" />,
         title: t.plantsTitle,
         description: t.plantsDescription,
-        imageUrl: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://images.unsplash.com/photo-1682096390340-3030ab6be920?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         imageHint: 'tropical plants nursery',
       },
       {
