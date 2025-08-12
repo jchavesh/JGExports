@@ -4,7 +4,6 @@ import React, { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { submitContactForm } from '@/app/actions';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -48,15 +47,27 @@ export default function ContactSection() {
 
   const onSubmit = (data: FormData) => {
     startTransition(async () => {
-      const result = await submitContactForm(data);
-      if (result.success) {
-        setIsSuccess(true);
-        form.reset();
-      } else {
+      try {
+        const response = await fetch('https://formspree.io/f/YOUR_UNIQUE_ID', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          setIsSuccess(true);
+          form.reset();
+        } else {
+          throw new Error('Failed to send message.');
+        }
+      } catch (error) {
         toast({
           variant: 'destructive',
           title: 'Error',
-          description: result.message || 'Failed to send message. Please try again.',
+          description: 'Failed to send message. Please try again.',
         });
       }
     });
@@ -120,7 +131,7 @@ export default function ContactSection() {
                       <FormItem>
                         <FormLabel>{t.form.email}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t.form.emailPlaceholder} {...field} />
+                          <Input type="email" placeholder={t.form.emailPlaceholder} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -203,6 +214,9 @@ export default function ContactSection() {
                     </>
                   )}
                 </Button>
+                 <p className="text-xs text-muted-foreground text-center">
+                    Powered by <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" className="underline">Formspree</a>
+                </p>
               </form>
             </Form>
           </div>
