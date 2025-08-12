@@ -86,3 +86,10 @@ body {
     height: 2px;
   }
 }
+
+@media (min-width: 1024px) {
+    section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
