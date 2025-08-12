@@ -84,9 +84,12 @@ export const translations = {
     },
     contact: {
         title: 'Get in Touch',
-        subtitle: 'Ready to source the best from Costa Rica? Fill out the form, and our sales team will contact you to discuss your needs.',
+        subtitle: 'Ready to source the best from Costa Rica? You can either chat with us directly on WhatsApp for a quick response or fill out the form, and we will contact you shortly.',
         whatsappButton: 'Chat on WhatsApp',
+        whatsappTitle: 'Direct Chat',
         whatsappNote: 'For immediate inquiries, chat with us directly.',
+        formTitle: 'Or Send an Inquiry',
+        formSubtitle: 'We\'ll prepare the message for you to send via WhatsApp.',
         form: {
             name: 'Full Name',
             namePlaceholder: 'John Doe',
@@ -100,8 +103,8 @@ export const translations = {
             productPlaceholder: 'Select a product',
             message: 'Message',
             messagePlaceholder: 'Tell us about your requirements...',
-            submit: 'Submit Inquiry',
-            submitting: 'Submitting...'
+            submit: 'Send via WhatsApp',
+            submitting: 'Preparing...'
         },
         products: {
             coffee: 'Coffee',
@@ -109,9 +112,9 @@ export const translations = {
             cacao: 'Cacao',
         },
         success: {
-            title: 'Thank You!',
-            message: 'Your message has been sent successfully. Our team has received your inquiry and will get back to you shortly.',
-            button: 'Send Another Message'
+            title: 'Message Ready!',
+            message: 'Your WhatsApp message is ready. Please press "Send" in the new tab to contact us. We look forward to hearing from you!',
+            button: 'Compose Another Message'
         }
     }
   },
@@ -200,9 +203,12 @@ export const translations = {
     },
     contact: {
         title: 'Ponerse en Contacto',
-        subtitle: '¿Listo para obtener lo mejor de Costa Rica? Complete el formulario y nuestro equipo de ventas se comunicará con usted para analizar sus necesidades.',
+        subtitle: '¿Listo para obtener lo mejor de Costa Rica? Puede chatear directamente con nosotros en WhatsApp para una respuesta rápida o completar el formulario y nos pondremos en contacto en breve.',
         whatsappButton: 'Chatear en WhatsApp',
+        whatsappTitle: 'Chat Directo',
         whatsappNote: 'Para consultas inmediatas, chatee directamente con nosotros.',
+        formTitle: 'O Envíe una Consulta',
+        formSubtitle: 'Prepararemos el mensaje para que lo envíe por WhatsApp.',
         form: {
             name: 'Nombre Completo',
             namePlaceholder: 'Juan Pérez',
@@ -216,8 +222,8 @@ export const translations = {
             productPlaceholder: 'Seleccione un producto',
             message: 'Mensaje',
             messagePlaceholder: 'Cuéntenos sobre sus requerimientos...',
-            submit: 'Enviar Consulta',
-            submitting: 'Enviando...'
+            submit: 'Enviar por WhatsApp',
+            submitting: 'Preparando...'
         },
         products: {
             coffee: 'Café',
@@ -225,9 +231,9 @@ export const translations = {
             cacao: 'Cacao',
         },
         success: {
-            title: '¡Gracias!',
-            message: 'Su mensaje ha sido enviado con éxito. Nuestro equipo ha recibido su consulta y se comunicará con usted en breve.',
-            button: 'Enviar Otro Mensaje'
+            title: '¡Mensaje Listo!',
+            message: 'Tu mensaje de WhatsApp está listo. Por favor, presiona "Enviar" en la nueva pestaña para contactarnos. ¡Esperamos tu mensaje!',
+            button: 'Redactar Otro Mensaje'
         }
     }
   },

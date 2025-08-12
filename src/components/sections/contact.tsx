@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useTransition } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -10,7 +10,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
 import { Loader2, MessageSquare, Send, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -30,9 +29,8 @@ export default function ContactSection() {
   const { language, translations } = useLanguage();
   const t = translations[language].contact;
 
-  const [isPending, startTransition] = useTransition();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const { toast } = useToast();
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -46,31 +44,27 @@ export default function ContactSection() {
   });
 
   const onSubmit = (data: FormData) => {
-    startTransition(async () => {
-      try {
-        const response = await fetch('https://formspree.io/f/YOUR_UNIQUE_ID', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
+    setIsSubmitting(true);
+    const phoneNumber = '50661330225'; // Your WhatsApp number without '+' or spaces
 
-        if (response.ok) {
-          setIsSuccess(true);
-          form.reset();
-        } else {
-          throw new Error('Failed to send message.');
-        }
-      } catch (error) {
-        toast({
-          variant: 'destructive',
-          title: 'Error',
-          description: 'Failed to send message. Please try again.',
-        });
-      }
-    });
+    const messageLines = [
+        `*${t.form.name}:* ${data.name}`,
+        `*${t.form.email}:* ${data.email}`,
+        `*${t.form.company}:* ${data.company}`,
+        `*${t.form.country}:* ${data.country}`,
+        `*${t.form.productInterest}:* ${data.productInterest}`,
+        `---`,
+        `${data.message}`
+    ];
+    
+    const whatsappMessage = encodeURIComponent(messageLines.join('\n'));
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+    
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    form.reset();
   };
 
   if (isSuccess) {
@@ -97,17 +91,20 @@ export default function ContactSection() {
             <p className="mt-4 text-muted-foreground md:text-lg">
               {t.subtitle}
             </p>
-            <div className="mt-8">
-              <Button asChild size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700">
-                <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
-                  <MessageSquare className="mr-2 h-5 w-5" />
-                  {t.whatsappButton}
-                </Link>
+             <div className="mt-8">
+                <h3 className="text-lg font-semibold font-headline">{t.whatsappTitle}</h3>
+                <p className="text-muted-foreground mt-2">{t.whatsappNote}</p>
+                <Button asChild size="lg" className="mt-4 w-full sm:w-auto bg-green-600 hover:bg-green-700">
+                    <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
+                    <MessageSquare className="mr-2 h-5 w-5" />
+                    {t.whatsappButton}
+                    </Link>
               </Button>
-              <p className="mt-2 text-sm text-muted-foreground">{t.whatsappNote}</p>
             </div>
           </div>
           <div className="bg-background p-8 rounded-lg shadow-lg">
+             <h3 className="text-lg font-semibold font-headline mb-1">{t.formTitle}</h3>
+             <p className="text-muted-foreground mb-6 text-sm">{t.formSubtitle}</p>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
@@ -201,8 +198,8 @@ export default function ContactSection() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" disabled={isPending} className="w-full">
-                  {isPending ? (
+                <Button type="submit" disabled={isSubmitting} className="w-full">
+                  {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                       {t.form.submitting}
@@ -214,9 +211,6 @@ export default function ContactSection() {
                     </>
                   )}
                 </Button>
-                 <p className="text-xs text-muted-foreground text-center">
-                    Powered by <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" className="underline">Formspree</a>
-                </p>
               </form>
             </Form>
           </div>
