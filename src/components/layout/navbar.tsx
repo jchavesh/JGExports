@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -128,7 +128,10 @@ export default function Navbar() {
                 </DropdownMenuContent>
             </DropdownMenu>
           <Button asChild>
-            <Link href="#contact" onClick={handleScrollTo('contact')}>{t.nav.contact}</Link>
+            <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
+                <MessageSquare className="mr-2 h-5 w-5" />
+                {t.nav.contact}
+            </Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -158,7 +161,10 @@ export default function Navbar() {
               </Link>
             ))}
             <Button asChild className="w-full">
-              <Link href="#contact" onClick={handleScrollTo('contact')}>{t.nav.contact}</Link>
+               <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
+                <MessageSquare className="mr-2 h-5 w-5" />
+                {t.nav.contact}
+            </Link>
             </Button>
             </nav>
             <div className="mt-4 flex justify-center">

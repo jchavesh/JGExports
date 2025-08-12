@@ -5,7 +5,7 @@ export const translations = {
       process: 'Process',
       about: 'About',
       faq: 'FAQ',
-      contact: 'Contact Us',
+      contact: 'Chat on WhatsApp',
     },
     hero: {
         title: 'From the Heart of Costa Rica to Your Doorstep',
@@ -121,7 +121,7 @@ export const translations = {
       process: 'Proceso',
       about: 'Nosotros',
       faq: 'Preguntas',
-      contact: 'Contáctanos',
+      contact: 'Chatear en WhatsApp',
     },
     hero: {
         title: 'Del Corazón de Costa Rica a su Puerta',
