@@ -23,7 +23,7 @@ export default function Home() {
         <AnimatedSection>
           <AboutSection />
         </AnimatedSection>
-        <AnimatedSection>
+        <AnimatedSection className="py-0">
           <FaqSection />
         </AnimatedSection>
         <AnimatedSection>
