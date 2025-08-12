@@ -1,8 +1,10 @@
 'use server';
 
 import { z } from 'zod';
-import { summarizeSalesLead } from '@/ai/flows/generate-sales-lead-summary';
-import { suggestSalesResponse } from '@/ai/flows/suggest-sales-response';
+import { Resend } from 'resend';
+import ContactFormEmail from '@/emails/contact-form-email';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const formSchema = z.object({
   name: z.string(),
@@ -23,32 +25,20 @@ export async function submitContactForm(data: ContactFormInput) {
   }
 
   try {
-    // These AI calls can be used to power internal workflows,
-    // like sending a summary to a sales Slack channel or pre-filling a CRM entry.
-    // For this example, we'll just log the output to the console.
+    const { name, email, company, country, productInterest, message } = parsedData.data;
 
-    const [summaryResult, responseResult] = await Promise.all([
-      summarizeSalesLead(parsedData.data),
-      suggestSalesResponse({
-        ...parsedData.data,
-        productOfInterest: parsedData.data.productInterest,
-      }),
-    ]);
-
-    console.log('--- AI Lead Summary ---');
-    console.log(summaryResult);
-    console.log('--- AI Suggested Response ---');
-    console.log(responseResult);
-
-    // In a real application, you would now:
-    // 1. Save the lead to your database.
-    // 2. Email the sales team with the summary.
-    // 3. Send an auto-reply to the customer.
+    await resend.emails.send({
+        from: 'J&G Exports Contact Form <onboarding@resend.dev>',
+        to: 'info@jgexportscr.com',
+        reply_to: email,
+        subject: `New Inquiry from ${name} - ${company}`,
+        react: ContactFormEmail({ name, email, company, country, productInterest, message }),
+    });
 
     return { success: true, message: 'Form submitted successfully!' };
 
   } catch (error) {
-    console.error('Error processing contact form:', error);
-    return { success: false, message: 'An unexpected error occurred.' };
+    console.error('Error sending email:', error);
+    return { success: false, message: 'An unexpected error occurred while sending the email.' };
   }
 }
