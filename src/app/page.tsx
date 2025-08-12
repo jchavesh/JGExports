@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <HeroSection />
-        <AnimatedSection>
+        <AnimatedSection className="pt-0">
           <ProductsSection />
         </AnimatedSection>
         <AnimatedSection>
