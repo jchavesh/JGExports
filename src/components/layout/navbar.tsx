@@ -36,6 +36,7 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -82,16 +83,14 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-background/80 shadow-md backdrop-blur-sm' : 'bg-transparent'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/80 shadow-md backdrop-blur-sm'
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Globe className="h-7 w-7 text-accent" />
           <span className={cn(
-              "text-xl font-bold font-headline transition-colors",
-              isScrolled ? "text-foreground" : "text-white [text-shadow:1px_1px_2px_#333333]"
+              "text-xl font-bold font-headline transition-colors text-foreground"
             )}>
             J&G Exports
           </span>
