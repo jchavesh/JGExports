@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { Resend } from 'resend';
 import ContactFormEmail from '@/emails/contact-form-email';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 const formSchema = z.object({
   name: z.string(),
@@ -22,6 +22,11 @@ export async function submitContactForm(data: ContactFormInput) {
 
   if (!parsedData.success) {
     return { success: false, message: 'Invalid data provided.' };
+  }
+
+  if (!resend) {
+    console.error('Resend is not configured. Please check your RESEND_API_KEY.');
+    return { success: false, message: 'The email service is not configured correctly.' };
   }
 
   try {
