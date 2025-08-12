@@ -31,7 +31,6 @@ const ExportTimelineSection: React.FC = () => {
           </p>
         </div>
         <div className="relative mt-12">
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2"></div>
           <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-0">
             {timelineSteps.map((step, index) => (
               <div key={index} className="flex-1 w-full md:w-auto flex flex-col items-center text-center p-4 py-8">
