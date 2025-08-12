@@ -14,19 +14,19 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <HeroSection />
-        <AnimatedSection className="pt-0">
+        <AnimatedSection className="py-12 md:py-24">
           <ProductsSection />
         </AnimatedSection>
-        <AnimatedSection className="py-0">
+        <AnimatedSection className="py-12 md:py-24">
           <ExportTimelineSection />
         </AnimatedSection>
-        <AnimatedSection>
+        <AnimatedSection className="py-12 md:py-24">
           <AboutSection />
         </AnimatedSection>
-        <AnimatedSection className="py-0">
+        <AnimatedSection className="py-12 md:py-24">
           <FaqSection />
         </AnimatedSection>
-        <AnimatedSection>
+        <AnimatedSection className="py-12 md:py-24">
           <ContactSection />
         </AnimatedSection>
       </main>
