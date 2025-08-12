@@ -17,7 +17,7 @@ export default function Home() {
         <AnimatedSection className="pt-0">
           <ProductsSection />
         </AnimatedSection>
-        <AnimatedSection>
+        <AnimatedSection className="py-12 md:py-16 lg:py-20">
           <ExportTimelineSection />
         </AnimatedSection>
         <AnimatedSection>
