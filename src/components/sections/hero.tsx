@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
@@ -9,10 +9,25 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const HeroSection: React.FC = () => {
   const { language, translations } = useLanguage();
   const t = translations[language].hero;
+  const [offsetY, setOffsetY] = useState(0);
+
+  const handleScroll = () => {
+    if (window.scrollY < window.innerHeight) {
+        setOffsetY(window.scrollY * 0.5);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
-      <div className="absolute inset-0 z-[-1]">
+      <div 
+        className="absolute inset-0 z-[-1]"
+        style={{ transform: `translateY(${offsetY}px)` }}
+      >
         <Image
           src="https://static01.nyt.com/images/2025/02/19/espanol/00coffee-29-ES-copy1/00coffee-10-plwg-videoSixteenByNine3000.jpg"
           alt="Costa Rican Coffee Plantation"
