@@ -37,8 +37,10 @@ export default function Navbar({ activeSection }: NavbarProps) {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
+      const headerOffset = document.querySelector('header')?.offsetHeight || 0;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - 1; // Adjust scroll position by 1px
+      const offsetPosition = elementPosition - headerOffset;
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth',
@@ -74,7 +76,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               onClick={handleScrollTo(link.id)}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-accent',
-                activeSection === link.id ? 'text-accent font-bold' : 'text-foreground'
+                activeSection === link.id ? 'text-accent' : 'text-foreground'
               )}
             >
               {link.title}
