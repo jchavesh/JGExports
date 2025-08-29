@@ -94,7 +94,7 @@ export default function ContactSection() {
              <div className="mt-8">
                 <h3 className="text-lg font-semibold font-headline">{t.whatsappTitle}</h3>
                 <p className="text-muted-foreground mt-2">{t.whatsappNote}</p>
-                <Button asChild size="lg" className="mt-4 w-full sm:w-auto" variant="accent">
+                <Button asChild size="lg" className="mt-4 w-full sm:w-auto" variant="default">
                     <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                     <MessageSquare className="mr-2 h-5 w-5" />
                     {t.whatsappButton}
