@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
 import Navbar from "@/components/layout/navbar";
 import ProductsSection from "@/components/sections/products";
 import ExportTimelineSection from "@/components/sections/export-timeline";
@@ -21,35 +21,6 @@ export default function Home() {
     faq: useRef<HTMLElement>(null),
     contact: useRef<HTMLElement>(null),
   };
-
-  const handleScroll = useCallback(() => {
-    const scrollPosition = window.scrollY;
-    const navHeight = document.querySelector('header')?.offsetHeight || 80;
-
-    let currentSection = '';
-
-    Object.keys(sectionRefs).forEach((id) => {
-      const ref = sectionRefs[id];
-      if (ref.current) {
-        const sectionTop = ref.current.offsetTop;
-        const sectionHeight = ref.current.offsetHeight;
-        if (scrollPosition + navHeight >= sectionTop && scrollPosition + navHeight < sectionTop + sectionHeight) {
-          currentSection = id;
-        }
-      }
-    });
-
-    if(currentSection && currentSection !== activeSection) {
-      setActiveSection(currentSection);
-    }
-  }, [activeSection, sectionRefs]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [handleScroll]);
 
   return (
     <div className="flex min-h-screen flex-col">
