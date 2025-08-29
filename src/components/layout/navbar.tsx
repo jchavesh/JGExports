@@ -16,9 +16,10 @@ import {
 
 interface NavbarProps {
   activeSection: string;
+  setActiveSection: (section: string) => void;
 }
 
-export default function Navbar({ activeSection }: NavbarProps) {
+export default function Navbar({ activeSection, setActiveSection }: NavbarProps) {
   const { language, translations, setLanguage } = useLanguage();
   const t = translations[language];
 
@@ -45,6 +46,8 @@ export default function Navbar({ activeSection }: NavbarProps) {
         top: offsetPosition,
         behavior: 'smooth',
       });
+      // Force set active section on click
+      setActiveSection(id);
     }
     if (isMenuOpen) {
       setIsMenuOpen(false);
@@ -75,8 +78,10 @@ export default function Navbar({ activeSection }: NavbarProps) {
               href={`#${link.id}`}
               onClick={handleScrollTo(link.id)}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-accent',
-                activeSection === link.id ? 'text-accent' : 'text-foreground'
+                'text-sm transition-colors hover:text-accent',
+                activeSection === link.id
+                  ? 'font-bold text-accent'
+                  : 'font-medium text-foreground'
               )}
             >
               {link.title}
@@ -126,8 +131,10 @@ export default function Navbar({ activeSection }: NavbarProps) {
                 href={`#${link.id}`}
                 onClick={handleScrollTo(link.id)}
                 className={cn(
-                  'text-lg font-medium transition-colors hover:text-accent',
-                  activeSection === link.id ? 'text-accent' : 'text-foreground'
+                  'text-lg transition-colors hover:text-accent',
+                  activeSection === link.id
+                    ? 'font-bold text-accent'
+                    : 'font-medium text-foreground'
                 )}
               >
                 {link.title}

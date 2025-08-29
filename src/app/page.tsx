@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar activeSection={activeSection} />
+      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
       <main className="flex-1">
         <AnimatedSection ref={sectionRefs.home} id="home">
           <HeroSection />
