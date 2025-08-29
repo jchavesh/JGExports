@@ -35,10 +35,15 @@ export default function Navbar({ activeSection }: NavbarProps) {
   
   const handleScrollTo = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    document.getElementById(id)?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    const element = document.getElementById(id);
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - 1; // Adjust scroll position by 1px
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
