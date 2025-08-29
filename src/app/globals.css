@@ -8,7 +8,7 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 95%; /* #f2f2f2 */
+    --background: 0 0% 100%; /* #ffffff */
     --foreground: 41 40% 15%; /* #342f16 */
     --card: 0 0% 100%;
     --card-foreground: 41 40% 15%;
@@ -16,7 +16,7 @@ body {
     --popover-foreground: 41 40% 15%;
     --primary: 45 42% 52%; /* #bd9a50 */
     --primary-foreground: 45 42% 95%;
-    --secondary: 0 0% 95%;
+    --secondary: 0 0% 95%; /* #f2f2f2 */
     --secondary-foreground: 41 40% 15%;
     --muted: 0 0% 95%;
     --muted-foreground: 41 40% 35%;

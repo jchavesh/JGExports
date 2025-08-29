@@ -56,13 +56,13 @@ export default function Home() {
         <AnimatedSection ref={sectionRefs.products} id="products">
           <ProductsSection />
         </AnimatedSection>
-        <AnimatedSection ref={sectionRefs.process} id="process">
+        <AnimatedSection ref={sectionRefs.process} id="process" className="bg-secondary">
           <ExportTimelineSection />
         </AnimatedSection>
         <AnimatedSection ref={sectionRefs.about} id="about">
           <AboutSection />
         </AnimatedSection>
-        <AnimatedSection ref={sectionRefs.faq} id="faq">
+        <AnimatedSection ref={sectionRefs.faq} id="faq" className="bg-secondary">
           <FaqSection />
         </AnimatedSection>
         <AnimatedSection ref={sectionRefs.contact} id="contact">

@@ -25,7 +25,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const ContactSection = React.forwardRef<HTMLElement, { id: string }>((props, ref) => {
+const ContactSection = React.forwardRef<HTMLElement, { id?: string }>(({ id }, ref) => {
   const { language, translations } = useLanguage();
   const t = translations[language].contact;
 
@@ -69,7 +69,7 @@ const ContactSection = React.forwardRef<HTMLElement, { id: string }>((props, ref
 
   if (isSuccess) {
     return (
-      <section id={props.id} ref={ref} className="bg-secondary">
+      <section id={id} ref={ref} className="bg-secondary">
         <div className="container mx-auto px-4 md:px-6 text-center py-20">
             <CheckCircle className="mx-auto h-16 w-16 text-green-500 mb-4" />
             <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl">{t.success.title}</h2>
@@ -83,7 +83,7 @@ const ContactSection = React.forwardRef<HTMLElement, { id: string }>((props, ref
   }
 
   return (
-    <section id={props.id} ref={ref} className="bg-secondary">
+    <section id={id} ref={ref} className="bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>

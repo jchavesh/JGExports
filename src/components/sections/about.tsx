@@ -5,7 +5,7 @@ import Image from 'next/image';
 import AnimatedCounter from '../animated-counter';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const AboutSection = React.forwardRef<HTMLElement, { id: string }>((props, ref) => {
+const AboutSection = React.forwardRef<HTMLElement, { id?: string }>(({ id }, ref) => {
   const { language, translations } = useLanguage();
   const t = translations[language].about;
 
@@ -16,7 +16,7 @@ const AboutSection = React.forwardRef<HTMLElement, { id: string }>((props, ref) 
   ];
 
   return (
-    <section id={props.id} ref={ref}>
+    <section id={id} ref={ref}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
