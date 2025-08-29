@@ -31,9 +31,9 @@ export default function Home() {
     Object.keys(sectionRefs).forEach((id) => {
       const ref = sectionRefs[id];
       if (ref.current) {
-        const sectionTop = ref.current.offsetTop - navHeight;
+        const sectionTop = ref.current.offsetTop;
         const sectionHeight = ref.current.offsetHeight;
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        if (scrollPosition + navHeight >= sectionTop && scrollPosition + navHeight < sectionTop + sectionHeight) {
           currentSection = id;
         }
       }
