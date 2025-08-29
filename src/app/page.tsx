@@ -34,7 +34,7 @@ export default function Home() {
 
   useEffect(() => {
     observer.current = new IntersectionObserver(handleObserver, {
-      rootMargin: '-50% 0px -50% 0px',
+      rootMargin: '-40% 0px -60% 0px',
     });
 
     Object.values(sectionRefs).forEach((ref) => {
