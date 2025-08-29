@@ -49,10 +49,10 @@ const HeroSection: React.FC = () => {
             {t.subtitle}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button size="lg" asChild variant="accent">
               <Link href="#contact">{t.quoteButton}</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+            <Button size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-accent">
               <Link href="#products">{t.exploreButton}</Link>
             </Button>
           </div>
