@@ -12,11 +12,7 @@ const HeroSection: React.FC = () => {
   const [offsetY, setOffsetY] = useState(0);
 
   const handleScroll = () => {
-    // We limit the parallax effect to the height of the section
-    const sectionHeight = window.innerHeight * 0.75; // 75vh
-    if (window.scrollY < sectionHeight) {
-        setOffsetY(window.scrollY * 0.4);
-    }
+    setOffsetY(window.scrollY * 0.4);
   };
 
   useEffect(() => {
@@ -25,10 +21,10 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center text-center text-foreground overflow-hidden">
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-foreground overflow-hidden">
       <div 
         className="absolute inset-0 z-[-1]"
-        style={{ transform: `translateY(${offsetY}px)` }}
+        style={{ transform: `translateY(${offsetY}px) scale(1.1)` }}
       >
         <Image
           src="https://static01.nyt.com/images/2025/02/19/espanol/00coffee-29-ES-copy1/00coffee-10-plwg-videoSixteenByNine3000.jpg"
