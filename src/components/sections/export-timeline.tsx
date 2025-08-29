@@ -22,7 +22,7 @@ const ExportTimelineSection = React.forwardRef<HTMLElement, { id: string }>((pro
   }));
 
   return (
-    <section id={props.id} ref={ref}>
+    <section id={props.id} ref={ref} className="bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl">{t.title}</h2>
