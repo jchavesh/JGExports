@@ -106,7 +106,7 @@ export default function Navbar() {
               onClick={handleScrollTo(link.id)}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-primary',
-                activeSection === link.id ? 'text-primary font-bold' : 'text-foreground'
+                activeSection === link.id ? 'text-accent font-bold' : 'text-foreground'
               )}
             >
               {link.title}
@@ -130,7 +130,7 @@ export default function Navbar() {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
-          <Button asChild variant="primary">
+          <Button asChild variant="accent">
             <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 {t.nav.contact}
@@ -163,7 +163,7 @@ export default function Navbar() {
                 {link.title}
               </Link>
             ))}
-            <Button asChild className="w-full" variant="primary">
+            <Button asChild className="w-full" variant="accent">
                <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 {t.nav.contact}

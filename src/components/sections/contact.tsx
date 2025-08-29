@@ -76,7 +76,7 @@ export default function ContactSection() {
             <p className="mt-4 text-muted-foreground md:text-xl max-w-2xl mx-auto">
                 {t.success.message}
             </p>
-            <Button onClick={() => setIsSuccess(false)} className="mt-8" variant="primary">{t.success.button}</Button>
+            <Button onClick={() => setIsSuccess(false)} className="mt-8">{t.success.button}</Button>
         </div>
       </section>
     );
@@ -94,7 +94,7 @@ export default function ContactSection() {
              <div className="mt-8">
                 <h3 className="text-lg font-semibold font-headline">{t.whatsappTitle}</h3>
                 <p className="text-muted-foreground mt-2">{t.whatsappNote}</p>
-                <Button asChild size="lg" className="mt-4 w-full sm:w-auto" variant="primary">
+                <Button asChild size="lg" className="mt-4 w-full sm:w-auto" variant="accent">
                     <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                     <MessageSquare className="mr-2 h-5 w-5" />
                     {t.whatsappButton}
@@ -198,7 +198,7 @@ export default function ContactSection() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" disabled={isSubmitting} className="w-full" variant="primary">
+                <Button type="submit" disabled={isSubmitting} className="w-full">
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
