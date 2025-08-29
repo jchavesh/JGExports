@@ -1,3 +1,6 @@
+'use client';
+
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Navbar from "@/components/layout/navbar";
 import ProductsSection from "@/components/sections/products";
 import ExportTimelineSection from "@/components/sections/export-timeline";
@@ -9,9 +12,42 @@ import AnimatedSection from "@/components/animated-section";
 import HeroSection from "@/components/sections/hero";
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState('');
+  const observer = useRef<IntersectionObserver | null>(null);
+
+  const sectionIds = ['products', 'process', 'about', 'faq', 'contact'];
+
+  const createObserver = useCallback(() => {
+    if (observer.current) {
+      observer.current.disconnect();
+    }
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-50% 0px -50% 0px' }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        observer.current?.observe(el);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    createObserver();
+    return () => observer.current?.disconnect();
+  }, [createObserver]);
+
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
+      <Navbar activeSection={activeSection} />
       <main className="flex-1">
         <HeroSection />
         <div>

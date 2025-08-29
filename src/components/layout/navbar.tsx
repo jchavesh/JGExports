@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, Globe, MessageSquare } from 'lucide-react';
@@ -14,8 +14,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+interface NavbarProps {
+  activeSection: string;
+}
 
-export default function Navbar() {
+export default function Navbar({ activeSection }: NavbarProps) {
   const { language, translations, setLanguage } = useLanguage();
   const t = translations[language];
 
@@ -28,19 +31,7 @@ export default function Navbar() {
 
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
-  const [isScrolled, setIsScrolled] = useState(false);
-  const observer = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  
   const handleScrollTo = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({
@@ -51,35 +42,6 @@ export default function Navbar() {
       setIsMenuOpen(false);
     }
   };
-
-  const createObserver = useCallback(() => {
-    if (observer.current) {
-      observer.current.disconnect();
-    }
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '-50% 0px -50% 0px' }
-    );
-
-    navLinks.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) {
-        observer.current?.observe(el);
-      }
-    });
-  }, [navLinks]);
-
-  useEffect(() => {
-    createObserver();
-    return () => observer.current?.disconnect();
-  }, [createObserver]);
-
 
   return (
     <header
@@ -130,7 +92,7 @@ export default function Navbar() {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
-          <Button asChild>
+          <Button asChild variant="default">
             <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 {t.nav.contact}
