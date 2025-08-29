@@ -13,8 +13,6 @@ import HeroSection from "@/components/sections/hero";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
-  const observer = useRef<IntersectionObserver | null>(null);
-
   const sectionRefs: { [key: string]: React.RefObject<HTMLElement> } = {
     home: useRef<HTMLElement>(null),
     products: useRef<HTMLElement>(null),
@@ -24,27 +22,34 @@ export default function Home() {
     contact: useRef<HTMLElement>(null),
   };
 
-  const handleObserver = useCallback((entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setActiveSection(entry.target.id);
+  const handleScroll = useCallback(() => {
+    const scrollPosition = window.scrollY;
+    const navHeight = document.querySelector('header')?.offsetHeight || 80;
+
+    let currentSection = '';
+
+    Object.keys(sectionRefs).forEach((id) => {
+      const ref = sectionRefs[id];
+      if (ref.current) {
+        const sectionTop = ref.current.offsetTop - navHeight;
+        const sectionHeight = ref.current.offsetHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSection = id;
+        }
       }
     });
-  }, []);
+
+    if(currentSection && currentSection !== activeSection) {
+      setActiveSection(currentSection);
+    }
+  }, [activeSection, sectionRefs]);
 
   useEffect(() => {
-    observer.current = new IntersectionObserver(handleObserver, {
-      rootMargin: '-50% 0px -50% 0px',
-    });
-
-    Object.values(sectionRefs).forEach((ref) => {
-      if (ref.current) {
-        observer.current?.observe(ref.current);
-      }
-    });
-
-    return () => observer.current?.disconnect();
-  }, [handleObserver, sectionRefs]);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
 
   return (
     <div className="flex min-h-screen flex-col">
