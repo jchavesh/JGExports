@@ -69,7 +69,7 @@ const ContactSection = React.forwardRef<HTMLElement, { id?: string }>(({ id }, r
 
   if (isSuccess) {
     return (
-      <section id={id} ref={ref} className="bg-secondary">
+      <section id={id} ref={ref}>
         <div className="container mx-auto px-4 md:px-6 text-center py-20">
             <CheckCircle className="mx-auto h-16 w-16 text-green-500 mb-4" />
             <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl">{t.success.title}</h2>
@@ -83,7 +83,7 @@ const ContactSection = React.forwardRef<HTMLElement, { id?: string }>(({ id }, r
   }
 
   return (
-    <section id={id} ref={ref} className="bg-secondary">
+    <section id={id} ref={ref}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
