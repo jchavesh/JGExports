@@ -5,11 +5,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { CheckCircle, BotMessageSquare, PackageCheck, Ship, Users } from 'lucide-react';
 
 const icons = [
-  <BotMessageSquare key="inquiry" className="h-8 w-8 text-primary" />,
-  <PackageCheck key="sample" className="h-8 w-8 text-primary" />,
-  <CheckCircle key="production" className="h-8 w-8 text-primary" />,
-  <Ship key="logistics" className="h-8 w-8 text-primary" />,
-  <Users key="delivery" className="h-8 w-8 text-primary" />,
+  <BotMessageSquare key="inquiry" className="h-8 w-8 text-accent" />,
+  <PackageCheck key="sample" className="h-8 w-8 text-accent" />,
+  <CheckCircle key="production" className="h-8 w-8 text-accent" />,
+  <Ship key="logistics" className="h-8 w-8 text-accent" />,
+  <Users key="delivery" className="h-8 w-8 text-accent" />,
 ];
 
 const ExportTimelineSection: React.FC = () => {
@@ -34,7 +34,7 @@ const ExportTimelineSection: React.FC = () => {
           <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-0">
             {timelineSteps.map((step, index) => (
               <div key={index} className="flex-1 w-full md:w-auto flex flex-col items-center text-center p-4 py-8">
-                 <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-background border-2 border-primary mb-4">
+                 <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-background border-2 border-accent mb-4">
                   {step.icon}
                 </div>
                 <h3 className="text-lg font-bold font-headline">{step.title}</h3>

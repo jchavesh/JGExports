@@ -15,21 +15,21 @@ const ProductsSection: React.FC = () => {
 
     const products = [
       {
-        icon: <Coffee className="h-12 w-12 text-primary" />,
+        icon: <Coffee className="h-12 w-12 text-accent" />,
         title: t.coffeeTitle,
         description: t.coffeeDescription,
         imageUrl: 'https://images.unsplash.com/photo-1515694590185-73647ba02c10?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         imageHint: 'coffee beans plantation',
       },
       {
-        icon: <Leaf className="h-12 w-12 text-primary" />,
+        icon: <Leaf className="h-12 w-12 text-accent" />,
         title: t.plantsTitle,
         description: t.plantsDescription,
         imageUrl: 'https://images.unsplash.com/photo-1682096390340-3030ab6be920?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         imageHint: 'tropical plants nursery',
       },
       {
-        icon: <CacaoIcon className="h-12 w-12 text-primary" />,
+        icon: <CacaoIcon className="h-12 w-12 text-accent" />,
         title: t.cacaoTitle,
         description: t.cacaoDescription,
         imageUrl: 'https://images.unsplash.com/photo-1666107521077-e6f4fc939c0f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',

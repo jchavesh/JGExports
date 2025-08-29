@@ -130,7 +130,7 @@ export default function Navbar() {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
-          <Button asChild variant="accent">
+          <Button asChild>
             <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 {t.nav.contact}
@@ -163,7 +163,7 @@ export default function Navbar() {
                 {link.title}
               </Link>
             ))}
-            <Button asChild className="w-full" variant="accent">
+            <Button asChild className="w-full">
                <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 {t.nav.contact}
