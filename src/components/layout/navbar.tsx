@@ -68,7 +68,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               href={`#${link.id}`}
               onClick={handleScrollTo(link.id)}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
+                'text-sm font-medium transition-colors hover:text-accent',
                 activeSection === link.id ? 'text-accent font-bold' : 'text-foreground'
               )}
             >
@@ -119,7 +119,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                 href={`#${link.id}`}
                 onClick={handleScrollTo(link.id)}
                 className={cn(
-                  'text-lg font-medium transition-colors hover:text-primary',
+                  'text-lg font-medium transition-colors hover:text-accent',
                   activeSection === link.id ? 'text-accent' : 'text-foreground'
                 )}
               >
