@@ -6,6 +6,9 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 export const metadata: Metadata = {
   title: 'J&G Exports',
   description: 'Premium Coffee, Plants, and Cacao from Costa Rica',
+  icons: {
+    icon: '/images/JGExportsLogo_Icono_Verde.png',
+  },
   openGraph: {
     title: 'J&G Exports',
     description: 'Premium Coffee, Plants, and Cacao from Costa Rica',
