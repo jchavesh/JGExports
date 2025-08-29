@@ -9,13 +9,14 @@ import {
 } from '@/components/ui/accordion';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const FaqSection: React.FC = () => {
-    const { language, translations } = useLanguage();
-    const t = translations[language].faq;
-    const faqItems = t.items;
+
+const FaqSection = React.forwardRef<HTMLElement>((props, ref) => {
+  const { language, translations } = useLanguage();
+  const t = translations[language].faq;
+  const faqItems = t.items;
 
   return (
-    <section id="faq">
+    <section id="faq" ref={ref}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl">{t.title}</h2>
@@ -40,6 +41,8 @@ const FaqSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+FaqSection.displayName = 'FaqSection';
 
 export default FaqSection;

@@ -5,20 +5,18 @@ import Image from 'next/image';
 import AnimatedCounter from '../animated-counter';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+const AboutSection = React.forwardRef<HTMLElement>((props, ref) => {
+  const { language, translations } = useLanguage();
+  const t = translations[language].about;
 
-const AboutSection: React.FC = () => {
-    const { language, translations } = useLanguage();
-    const t = translations[language].about;
-
-    const stats = [
-      { value: 1, label: t.stats.yearsExporting },
-      { value: 2, label: t.stats.countriesServed },
-      { value: 98, label: t.stats.happyClients, suffix: '%' },
-    ];
-
+  const stats = [
+    { value: 1, label: t.stats.yearsExporting },
+    { value: 2, label: t.stats.countriesServed },
+    { value: 98, label: t.stats.happyClients, suffix: '%' },
+  ];
 
   return (
-    <section id="about" className="bg-secondary">
+    <section id="about" ref={ref}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -44,18 +42,20 @@ const AboutSection: React.FC = () => {
             </div>
           </div>
           <div className="relative w-full h-80 md:h-full rounded-lg overflow-hidden shadow-xl">
-             <Image
-                src="https://images.unsplash.com/photo-1567309966795-5ad24aa39971?q=80&w=1113&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="J&G Exports Team"
-                layout="fill"
-                objectFit="cover"
-                data-ai-hint="team portrait professional"
-              />
+            <Image
+              src="https://images.unsplash.com/photo-1567309966795-5ad24aa39971?q=80&w=1113&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="J&G Exports Team"
+              layout="fill"
+              objectFit="cover"
+              data-ai-hint="team portrait professional"
+            />
           </div>
         </div>
       </div>
     </section>
   );
-};
+});
+
+AboutSection.displayName = 'AboutSection';
 
 export default AboutSection;

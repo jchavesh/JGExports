@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, Globe, MessageSquare } from 'lucide-react';
@@ -28,7 +28,6 @@ export default function Navbar({ activeSection }: NavbarProps) {
     { id: 'about', title: t.nav.about },
     { id: 'faq', title: t.nav.faq },
   ];
-
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   

@@ -15,7 +15,13 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('');
   const observer = useRef<IntersectionObserver | null>(null);
 
-  const sectionIds = ['products', 'process', 'about', 'faq', 'contact'];
+  const sectionRefs: { [key: string]: React.RefObject<HTMLElement> } = {
+    products: useRef<HTMLElement>(null),
+    process: useRef<HTMLElement>(null),
+    about: useRef<HTMLElement>(null),
+    faq: useRef<HTMLElement>(null),
+    contact: useRef<HTMLElement>(null),
+  };
 
   const createObserver = useCallback(() => {
     if (observer.current) {
@@ -32,10 +38,9 @@ export default function Home() {
       { rootMargin: '-50% 0px -50% 0px' }
     );
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) {
-        observer.current?.observe(el);
+    Object.values(sectionRefs).forEach((ref) => {
+      if (ref.current) {
+        observer.current?.observe(ref.current);
       }
     });
   }, []);
@@ -50,19 +55,19 @@ export default function Home() {
       <Navbar activeSection={activeSection} />
       <main className="flex-1">
         <HeroSection />
-        <div>
+        <AnimatedSection ref={sectionRefs.products}>
           <ProductsSection />
-        </div>
-        <AnimatedSection>
+        </AnimatedSection>
+        <AnimatedSection ref={sectionRefs.process}>
           <ExportTimelineSection />
         </AnimatedSection>
-        <AnimatedSection>
+        <AnimatedSection ref={sectionRefs.about}>
           <AboutSection />
         </AnimatedSection>
-        <AnimatedSection>
+        <AnimatedSection ref={sectionRefs.faq}>
           <FaqSection />
         </AnimatedSection>
-        <AnimatedSection>
+        <AnimatedSection ref={sectionRefs.contact}>
           <ContactSection />
         </AnimatedSection>
       </main>
