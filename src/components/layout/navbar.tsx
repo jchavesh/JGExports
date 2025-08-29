@@ -105,8 +105,8 @@ export default function Navbar() {
               href={`#${link.id}`}
               onClick={handleScrollTo(link.id)}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
-                activeSection === link.id ? 'text-primary' : 'text-muted-foreground'
+                'text-sm font-medium transition-colors hover:text-accent',
+                activeSection === link.id ? 'text-accent font-bold' : 'text-foreground'
               )}
             >
               {link.title}
@@ -130,7 +130,7 @@ export default function Navbar() {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
-          <Button asChild>
+          <Button asChild variant="accent">
             <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 {t.nav.contact}
@@ -156,14 +156,14 @@ export default function Navbar() {
                 href={`#${link.id}`}
                 onClick={handleScrollTo(link.id)}
                 className={cn(
-                  'text-lg font-medium transition-colors hover:text-primary',
-                  activeSection === link.id ? 'text-primary' : 'text-foreground'
+                  'text-lg font-medium transition-colors hover:text-accent',
+                  activeSection === link.id ? 'text-accent' : 'text-foreground'
                 )}
               >
                 {link.title}
               </Link>
             ))}
-            <Button asChild className="w-full">
+            <Button asChild className="w-full" variant="accent">
                <Link href="https://wa.me/50661330225" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 {t.nav.contact}
