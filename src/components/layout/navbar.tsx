@@ -38,17 +38,10 @@ export default function Navbar({ activeSection, setActiveSection }: NavbarProps)
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const headerOffset = document.querySelector('header')?.offsetHeight || 0;
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-      // Force set active section on click
-      setActiveSection(id);
+      // The scroll-padding-top in globals.css handles the offset
+      element.scrollIntoView({ behavior: 'smooth' });
     }
+    setActiveSection(id);
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
