@@ -32,7 +32,7 @@ const AboutSection = React.forwardRef<HTMLElement, { id?: string }>(({ id }, ref
             <div className="mt-8 grid grid-cols-3 gap-4 text-center">
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-4xl md:text-5xl font-bold text-primary font-headline">
+                  <p className="text-4xl md:text-5xl font-bold text-accent font-headline">
                     <AnimatedCounter targetValue={stat.value} />
                     {stat.suffix}
                   </p>
