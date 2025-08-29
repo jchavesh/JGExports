@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-foreground overflow-hidden">
+    <div className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-foreground overflow-hidden">
       <div 
         className="absolute inset-0 z-[-1]"
         style={{ transform: `translateY(${offsetY}px) scale(1.1)` }}
@@ -54,7 +54,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

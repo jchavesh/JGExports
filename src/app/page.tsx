@@ -50,9 +50,9 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
       <main className="flex-1">
-        <AnimatedSection ref={sectionRefs.home} id="home">
+        <div ref={sectionRefs.home as React.RefObject<HTMLDivElement>} id="home">
           <HeroSection />
-        </AnimatedSection>
+        </div>
         <AnimatedSection ref={sectionRefs.products} id="products">
           <ProductsSection />
         </AnimatedSection>
