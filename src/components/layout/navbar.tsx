@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, Globe, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -88,12 +89,14 @@ export default function Navbar() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Globe className="h-7 w-7 text-accent" />
-          <span className={cn(
-              "text-xl font-bold font-headline transition-colors text-foreground"
-            )}>
-            J&G Exports
-          </span>
+          <Image
+            src="/images/JGExportsLogo_Horizontal_Verde.png"
+            alt="J&G Exports Logo"
+            width={180}
+            height={50}
+            priority
+            className="h-auto"
+          />
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
