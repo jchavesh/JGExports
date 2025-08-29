@@ -12,10 +12,11 @@ import AnimatedSection from "@/components/animated-section";
 import HeroSection from "@/components/sections/hero";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('home');
   const observer = useRef<IntersectionObserver | null>(null);
 
   const sectionRefs: { [key: string]: React.RefObject<HTMLElement> } = {
+    home: useRef<HTMLElement>(null),
     products: useRef<HTMLElement>(null),
     process: useRef<HTMLElement>(null),
     about: useRef<HTMLElement>(null),
@@ -23,51 +24,48 @@ export default function Home() {
     contact: useRef<HTMLElement>(null),
   };
 
-  const createObserver = useCallback(() => {
-    if (observer.current) {
-      observer.current.disconnect();
-    }
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '-50% 0px -50% 0px' }
-    );
+  const handleObserver = useCallback((entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActiveSection(entry.target.id);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver(handleObserver, {
+      rootMargin: '-50% 0px -50% 0px',
+    });
 
     Object.values(sectionRefs).forEach((ref) => {
       if (ref.current) {
         observer.current?.observe(ref.current);
       }
     });
-  }, []);
 
-  useEffect(() => {
-    createObserver();
     return () => observer.current?.disconnect();
-  }, [createObserver]);
+  }, [handleObserver, sectionRefs]);
 
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar activeSection={activeSection} />
       <main className="flex-1">
-        <HeroSection />
-        <AnimatedSection ref={sectionRefs.products}>
+        <AnimatedSection ref={sectionRefs.home} id="home">
+          <HeroSection />
+        </AnimatedSection>
+        <AnimatedSection ref={sectionRefs.products} id="products">
           <ProductsSection />
         </AnimatedSection>
-        <AnimatedSection ref={sectionRefs.process}>
+        <AnimatedSection ref={sectionRefs.process} id="process">
           <ExportTimelineSection />
         </AnimatedSection>
-        <AnimatedSection ref={sectionRefs.about}>
+        <AnimatedSection ref={sectionRefs.about} id="about">
           <AboutSection />
         </AnimatedSection>
-        <AnimatedSection ref={sectionRefs.faq}>
+        <AnimatedSection ref={sectionRefs.faq} id="faq">
           <FaqSection />
         </AnimatedSection>
-        <AnimatedSection ref={sectionRefs.contact}>
+        <AnimatedSection ref={sectionRefs.contact} id="contact">
           <ContactSection />
         </AnimatedSection>
       </main>

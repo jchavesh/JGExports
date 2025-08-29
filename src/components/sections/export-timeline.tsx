@@ -12,7 +12,7 @@ const icons = [
   <Users key="delivery" className="h-8 w-8 text-accent" />,
 ];
 
-const ExportTimelineSection = React.forwardRef<HTMLElement>((props, ref) => {
+const ExportTimelineSection = React.forwardRef<HTMLElement, { id: string }>((props, ref) => {
   const { language, translations } = useLanguage();
   const t = translations[language].exportTimeline;
 
@@ -22,7 +22,7 @@ const ExportTimelineSection = React.forwardRef<HTMLElement>((props, ref) => {
   }));
 
   return (
-    <section id="process" ref={ref}>
+    <section id={props.id} ref={ref}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl">{t.title}</h2>

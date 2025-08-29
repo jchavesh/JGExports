@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { CacaoIcon } from '../icons/cacao-icon';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const ProductsSection = React.forwardRef<HTMLElement>((props, ref) => {
+const ProductsSection = React.forwardRef<HTMLElement, { id: string }>((props, ref) => {
     const { language, translations } = useLanguage();
     const t = translations[language].products;
 
@@ -38,7 +38,7 @@ const ProductsSection = React.forwardRef<HTMLElement>((props, ref) => {
     ];
 
   return (
-    <section id="products" ref={ref} className="bg-secondary">
+    <section id={props.id} ref={ref} className="bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl md:text-5xl">{t.title}</h2>

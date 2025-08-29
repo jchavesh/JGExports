@@ -1,10 +1,12 @@
 export const translations = {
   en: {
     nav: {
+      home: 'Home',
       products: 'Products',
       process: 'Process',
       about: 'About',
       faq: 'FAQ',
+      contactNav: 'Contact',
       contact: 'Chat on WhatsApp',
     },
     hero: {
@@ -120,10 +122,12 @@ export const translations = {
   },
   es: {
     nav: {
+      home: 'Inicio',
       products: 'Productos',
       process: 'Proceso',
       about: 'Nosotros',
       faq: 'Preguntas',
+      contactNav: 'Contacto',
       contact: 'Chatear en WhatsApp',
     },
     hero: {

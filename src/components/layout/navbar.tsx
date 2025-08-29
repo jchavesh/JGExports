@@ -23,10 +23,12 @@ export default function Navbar({ activeSection }: NavbarProps) {
   const t = translations[language];
 
   const navLinks = [
+    { id: 'home', title: t.nav.home },
     { id: 'products', title: t.nav.products },
     { id: 'process', title: t.nav.process },
     { id: 'about', title: t.nav.about },
     { id: 'faq', title: t.nav.faq },
+    { id: 'contact', title: t.nav.contactNav },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -118,7 +120,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                 onClick={handleScrollTo(link.id)}
                 className={cn(
                   'text-lg font-medium transition-colors hover:text-primary',
-                  activeSection === link.id ? 'text-primary' : 'text-foreground'
+                  activeSection === link.id ? 'text-accent' : 'text-foreground'
                 )}
               >
                 {link.title}

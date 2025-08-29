@@ -25,7 +25,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="relative h-[75vh] min-h-[500px] flex items-center justify-center text-center text-foreground overflow-hidden">
+    <section className="relative h-[75vh] min-h-[500px] flex items-center justify-center text-center text-foreground overflow-hidden">
       <div 
         className="absolute inset-0 z-[-1]"
         style={{ transform: `translateY(${offsetY}px)` }}
@@ -49,7 +49,7 @@ const HeroSection: React.FC = () => {
             {t.subtitle}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" asChild>
+            <Button size="lg" asChild variant="default">
               <Link href="#contact">{t.quoteButton}</Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-foreground">
