@@ -1,7 +1,8 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { Globe, Instagram } from 'lucide-react';
+import Image from 'next/image';
+import { Instagram } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer: React.FC = () => {
@@ -15,10 +16,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto py-8 px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-             <Globe className="h-7 w-7 text-accent" />
-            <span className="text-xl font-bold font-headline text-foreground">
-              J&G Exports
-            </span>
+            <Image
+                src="/images/JGExportsLogo_Horizontal_Verde.png"
+                alt="J&G Exports Logo"
+                width={150}
+                height={42}
+                className="h-auto"
+              />
           </div>
           <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-sm text-muted-foreground">
