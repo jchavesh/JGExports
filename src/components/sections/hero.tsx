@@ -42,17 +42,17 @@ const HeroSection: React.FC = () => {
       </div>
       <div className="container relative z-10 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-headline font-bold sm:text-5xl md:text-6xl lg:text-7xl !leading-tight text-white">
+          <h1 className="text-4xl font-headline font-bold sm:text-5xl md:text-6xl lg:text-7xl !leading-tight text-background">
             {t.title}
           </h1>
-          <p className="mt-6 max-w-xl mx-auto text-lg md:text-xl text-slate-200">
+          <p className="mt-6 max-w-xl mx-auto text-lg md:text-xl text-background/80">
             {t.subtitle}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" asChild variant="accent">
+            <Button size="lg" asChild variant="primary">
               <Link href="#contact">{t.quoteButton}</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-primary hover:text-primary-foreground">
+            <Button size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-primary-foreground">
               <Link href="#products">{t.exploreButton}</Link>
             </Button>
           </div>

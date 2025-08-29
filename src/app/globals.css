@@ -14,19 +14,19 @@ body {
     --card-foreground: 41 40% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 41 40% 15%;
-    --primary: 45 42% 52%; /* #bd9a50 */
-    --primary-foreground: 41 40% 10%;
+    --primary: 124 19% 18%; /* #253a27 */
+    --primary-foreground: 45 42% 95%;
     --secondary: 0 0% 95%;
     --secondary-foreground: 41 40% 15%;
     --muted: 0 0% 95%;
     --muted-foreground: 41 40% 35%;
-    --accent: 124 19% 18%; /* #253a27 */
-    --accent-foreground: 45 42% 95%;
+    --accent: 45 42% 52%; /* #bd9a50 */
+    --accent-foreground: 41 40% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 85%;
     --input: 0 0% 90%;
-    --ring: 45 42% 52%;
+    --ring: 124 19% 18%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -41,19 +41,19 @@ body {
     --card-foreground: 0 0% 90%;
     --popover: 41 40% 15%;
     --popover-foreground: 0 0% 90%;
-    --primary: 45 42% 52%; /* #bd9a50 */
-    --primary-foreground: 41 40% 10%;
+    --primary: 124 19% 18%; /* #253a27 */
+    --primary-foreground: 45 42% 95%;
     --secondary: 124 19% 18%; /* #253a27 */
     --secondary-foreground: 0 0% 90%;
     --muted: 124 19% 18%;
     --muted-foreground: 0 0% 70%;
-    --accent: 45 42% 62%; /* Lighter gold for dark mode */
+    --accent: 45 42% 52%; /* #bd9a50 */
     --accent-foreground: 41 40% 10%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 124 19% 25%;
     --input: 124 19% 22%;
-    --ring: 45 42% 52%;
+    --ring: 124 19% 18%;
   }
 }
 

@@ -68,7 +68,7 @@ const ProductsSection: React.FC = () => {
                 <CardDescription>{product.description}</CardDescription>
               </CardContent>
               <CardFooter>
-                 <Button asChild variant="accent">
+                 <Button asChild variant="primary">
                     <Link href="#contact">{t.specSheetButton}</Link>
                 </Button>
               </CardFooter>
